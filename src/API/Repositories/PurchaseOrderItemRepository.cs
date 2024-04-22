@@ -1,5 +1,7 @@
 ﻿using API.Dapper.Entities;
 using API.Dapper.Interfaces.IRepositories;
+using Dapper;
+using Dapper.Contrib.Extensions;
 using System.Data;
 using System.Data.Common;
 
@@ -17,22 +19,23 @@ namespace API.Dapper.Repositories
 
         public void Delete(PurchaseOrderItem purchaseOrderItem)
         {
-            throw new NotImplementedException();
+            _connection.Delete<PurchaseOrderItem>(purchaseOrderItem);
         }
 
         public PurchaseOrderItem GetById(int id)
-        {
-            throw new NotImplementedException();
+        {            
+            return _connection.Get<PurchaseOrderItem>(id);
+            
         }
 
         public int Insert(PurchaseOrderItem purchaseOrderItem)
         {
-            throw new NotImplementedException();
+            return (int)_connection.Insert<PurchaseOrderItem>(purchaseOrderItem);
         }
 
         public void Update(PurchaseOrderItem purchaseOrderItem)
         {
-            throw new NotImplementedException();
+            _connection.Update<PurchaseOrderItem>(purchaseOrderItem);
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using API.Dapper.Entities;
 using API.Dapper.Interfaces.IRepositories;
+using Dapper;
+using Dapper.Contrib.Extensions;
 using System.Data;
 using System.Data.Common;
 
@@ -16,27 +18,29 @@ namespace API.Dapper.Repositories
         }
         public void Delete(Client client)
         {
-            throw new NotImplementedException();
+            _connection.Delete<Client>(client);
         }
 
         public Client GetById(int id)
         {
-            throw new NotImplementedException();
+            var commandSql = "Select * from Client where Id = @Id";
+            return _connection.QuerySingle<Client>(commandSql, new { Id = id});
         }
 
-        public Client GetByName(string Name)
+        public Client GetByName(string name)
         {
-            throw new NotImplementedException();
+            var commandSql = "Select * from Client where Name = @Name";
+            return _connection.QuerySingle<Client>(commandSql, new { Name= name });
         }
 
         public int Insert(Client client)
         {
-            throw new NotImplementedException();
+            return (int)_connection.Insert<Client>(client);
         }
 
         public void Update(Client client)
         {
-            throw new NotImplementedException();
+            _connection.Update<Client>(client);
         }
     }
 }

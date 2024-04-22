@@ -1,5 +1,7 @@
 ﻿using API.Dapper.Entities;
 using API.Dapper.Interfaces.IRepositories;
+using Dapper;
+using Dapper.Contrib.Extensions;
 using System.Data;
 using System.Data.Common;
 
@@ -17,12 +19,13 @@ namespace API.Dapper.Repositories
 
         public void Delete(PurchaseOrder purchaseOrder)
         {
-            throw new NotImplementedException();
+            _connection.Delete<PurchaseOrder>(purchaseOrder);
         }
 
         public PurchaseOrder GetById(int id)
         {
-            throw new NotImplementedException();
+            var commandSql = "Select * from PurchaseOrder where Id = @Id";
+            return _connection.QuerySingle<PurchaseOrder>(commandSql);
         }
 
         public int Insert(PurchaseOrder purchaseOrder)
