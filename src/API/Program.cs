@@ -1,3 +1,6 @@
+using System.Data;
+using System.Data.SqlClient;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -61,6 +64,9 @@ builder.Services.AddSwaggerGen();
 //);
 
 
+var connectionString = builder.Configuration.GetValue<string>("ConnectionStrings");
+
+builder.Services.AddScoped<IDbConnection>((connection) => new SqlConnection(connectionString));
 
 
 
