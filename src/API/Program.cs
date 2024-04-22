@@ -1,3 +1,8 @@
+using API.Dapper.Entities;
+using API.Dapper.Interfaces.IRepositories;
+using API.Dapper.Interfaces.IServices;
+using API.Dapper.Repositories;
+using API.Dapper.Services;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -66,8 +71,18 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetValue<string>("ConnectionStrings");
 
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IPurchaseOrderRepository, PurchaseOrderRepository>();
+builder.Services.AddScoped<IPurchaseOrderItemRepository, PurchaseOrderItemRepository>();
+
+builder.Services.AddScoped<IClientService, ClientService>();
+
 builder.Services.AddScoped<IDbConnection>((connection) => new SqlConnection(connectionString));
 
+
+
+//builder.Services.AddScoped<IPurchaseOrderService, IPurchaseOrderService>();
+//builder.Services.AddScoped<IPurchaseOrderItemService, IPurchaseOrderItemService>();
 
 
 var app = builder.Build();

@@ -19,6 +19,7 @@ namespace API.Dapper.Entities
         }
         public int Id { get; set; }  
         public string Name { get; set; }
+        
 
         public AddressObjectValue Address { get; set; }
         public DocumentObjectValue Document { get; set; }
@@ -39,6 +40,8 @@ namespace API.Dapper.Entities
     public class AddressObjectValue
     {
         public int Id { get; set; }
+
+        public int ClientId { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
         public string Complementary { get; set; }
