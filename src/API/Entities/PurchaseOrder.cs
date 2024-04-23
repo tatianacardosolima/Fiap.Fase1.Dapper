@@ -12,7 +12,7 @@
         public PurchaseOrder()
         {        
         }
-        public string Id { get; set; }  
+        public int Id { get; set; }  
         public Client Client{ get; set; }    
         public DateTime DateIssue { get; set; }
         public PurchaseOrderStatus Status { get; set; }

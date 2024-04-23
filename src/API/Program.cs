@@ -77,8 +77,8 @@ builder.Services.AddScoped<IPurchaseOrderRepository, PurchaseOrderRepository>();
 builder.Services.AddScoped<IPurchaseOrderItemRepository, PurchaseOrderItemRepository>();
 
 builder.Services.AddScoped<IClientService, ClientService>();
-//builder.Services.AddScoped<IPurchaseOrderService, PurchaseOrderService>();
-//builder.Services.AddScoped<IPurchaseOrderItemService, PurchaseOrderItemService>();
+builder.Services.AddScoped<IPurchaseOrderService, PurchaseOrderService>();
+builder.Services.AddScoped<IPurchaseOrderItemService, PurchaseOrderItemService>();
 
 
 var app = builder.Build();

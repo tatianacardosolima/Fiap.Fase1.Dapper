@@ -1,7 +1,15 @@
-﻿namespace API.DemoDapper.Interfaces.IServices
+﻿using API.DemoDapper.Entities;
+
+namespace API.DemoDapper.Interfaces.IServices
 {
     public interface IPurchaseOrderItemService
     {
+        void AddNew(PurchaseOrderItem purchaseOrderItem);
 
+        void Update(PurchaseOrderItem purchaseOrderItem);
+
+        void Delete(int id);
+
+        PurchaseOrderItem GetById(int id);
     }
 }
