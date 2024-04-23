@@ -1,15 +1,17 @@
-﻿using API.Dapper.Entities;
+﻿using API.DemoDapper.Entities;
 
-namespace API.Dapper.Interfaces.IServices
+namespace API.DemoDapper.Interfaces.IServices
 {
     public interface IClientService
     {
-        void AddNewClient(Client client);
+        void AddNew(Client client);
 
-        void UpdateClient(Client client);
+        void Update(Client client);
 
         void Delete(int id);
         
         Client GetById(int id);
+
+        List<Client> Get(int page = 1, int size = 10);
     }
 }

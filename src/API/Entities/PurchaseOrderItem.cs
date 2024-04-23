@@ -1,4 +1,4 @@
-﻿namespace API.Dapper.Entities
+﻿namespace API.DemoDapper.Entities
 {    
     
     public class PurchaseOrderItem

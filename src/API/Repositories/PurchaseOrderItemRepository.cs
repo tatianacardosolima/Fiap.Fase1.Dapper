@@ -1,11 +1,9 @@
-﻿using API.Dapper.Entities;
-using API.Dapper.Interfaces.IRepositories;
-using Dapper;
+﻿using API.DemoDapper.Entities;
+using API.DemoDapper.Interfaces.IRepositories;
 using Dapper.Contrib.Extensions;
 using System.Data;
-using System.Data.Common;
 
-namespace API.Dapper.Repositories
+namespace API.DemoDapper.Repositories
 {
     public class PurchaseOrderItemRepository : IPurchaseOrderItemRepository
     {
@@ -23,9 +21,9 @@ namespace API.Dapper.Repositories
         }
 
         public PurchaseOrderItem GetById(int id)
-        {            
+        {
             return _connection.Get<PurchaseOrderItem>(id);
-            
+
         }
 
         public int Insert(PurchaseOrderItem purchaseOrderItem)

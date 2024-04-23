@@ -1,8 +1,8 @@
-﻿using API.Dapper.Entities;
-using API.Dapper.Interfaces.IRepositories;
-using API.Dapper.Interfaces.IServices;
+﻿using API.DemoDapper.Entities;
+using API.DemoDapper.Interfaces.IRepositories;
+using API.DemoDapper.Interfaces.IServices;
 
-namespace API.Dapper.Services
+namespace API.DemoDapper.Services
 {
     public class ClientService : IClientService
     {
@@ -12,7 +12,7 @@ namespace API.Dapper.Services
         {
             _clientRepository = clientRepository;
         }
-        public void AddNewClient(Client client)
+        public void AddNew(Client client)
         {
             client.Id =  _clientRepository.Insert(client);            
         }
@@ -26,12 +26,17 @@ namespace API.Dapper.Services
                 throw new Exception("Id not found!");
         }
 
+        public List<Client> Get(int page = 1, int size = 10)
+        {
+            return _clientRepository.Get(page, size);
+        }
+
         public Client GetById(int id)
         {
             return _clientRepository.GetById(id);
         }
 
-        public void UpdateClient(Client client)
+        public void Update(Client client)
         {
             _clientRepository.Update(client);
         }

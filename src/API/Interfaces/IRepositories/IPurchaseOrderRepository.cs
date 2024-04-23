@@ -1,6 +1,6 @@
-﻿using API.Dapper.Entities;
+﻿using API.DemoDapper.Entities;
 
-namespace API.Dapper.Interfaces.IRepositories
+namespace API.DemoDapper.Interfaces.IRepositories
 {
     public interface IPurchaseOrderRepository
     {

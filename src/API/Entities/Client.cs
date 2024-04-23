@@ -1,6 +1,7 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using Dapper.Contrib.Extensions;
 
-namespace API.Dapper.Entities
+
+namespace API.DemoDapper.Entities
 {
     public enum DocumentType
     { 
@@ -8,21 +9,25 @@ namespace API.Dapper.Entities
         Identidade = 2,
         Passaport = 3
     }
-    
+    [Table("Client")]
     public class Client
     {
+        public Client()
+        {
+            
+        }
         public Client(string name, DocumentObjectValue document)
         {
             Name = name;
-            Document = document;
+            //Document = document;
 
         }
         public int Id { get; set; }  
         public string Name { get; set; }
         
 
-        public AddressObjectValue Address { get; set; }
-        public DocumentObjectValue Document { get; set; }
+        //public AddressObjectValue Address { get; set; }
+        //public DocumentObjectValue Document { get; set; }
 
 
 

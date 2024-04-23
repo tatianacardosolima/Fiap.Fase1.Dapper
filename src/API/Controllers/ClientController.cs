@@ -1,11 +1,11 @@
-﻿using API.Dapper.Entities;
-using API.Dapper.Interfaces.IServices;
-using API.Dapper.Services;
+﻿using API.DemoDapper.Entities;
+using API.DemoDapper.Interfaces.IServices;
+using API.DemoDapper.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace API.Dapper.Controllers
+namespace API.DemoDapper.Controllers
 {
     [ApiController]
     [Route("api/clients")]
@@ -41,14 +41,14 @@ namespace API.Dapper.Controllers
         [HttpPost]        
         public IActionResult Post(Client client)
         {
-            _clientService.AddNewClient(client);
+            _clientService.AddNew(client);
             return Ok(client);
         }
 
         [HttpPut]        
         public IActionResult Put(Client client)
         {
-            _clientService.UpdateClient(client);
+            _clientService.Update(client);
             return Ok();
         }
 

@@ -1,4 +1,4 @@
-﻿namespace API.Dapper.Interfaces.IServices
+﻿namespace API.DemoDapper.Interfaces.IServices
 {
     public interface IPurchaseOrderService
     {

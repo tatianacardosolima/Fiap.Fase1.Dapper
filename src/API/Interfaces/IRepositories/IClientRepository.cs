@@ -1,6 +1,6 @@
-﻿using API.Dapper.Entities;
+﻿using API.DemoDapper.Entities;
 
-namespace API.Dapper.Interfaces.IRepositories
+namespace API.DemoDapper.Interfaces.IRepositories
 {
     public interface IClientRepository
     {
@@ -9,5 +9,7 @@ namespace API.Dapper.Interfaces.IRepositories
         void Delete(Client client);
         Client GetById(int id);
         Client GetByName(string Name);
+
+        List<Client> Get(int page = 1, int size = 10);
     }
 }

@@ -1,11 +1,10 @@
-﻿using API.Dapper.Entities;
-using API.Dapper.Interfaces.IRepositories;
+﻿using API.DemoDapper.Entities;
+using API.DemoDapper.Interfaces.IRepositories;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using System.Data;
-using System.Data.Common;
 
-namespace API.Dapper.Repositories
+namespace API.DemoDapper.Repositories
 {
     public class PurchaseOrderRepository : IPurchaseOrderRepository
     {
@@ -30,12 +29,12 @@ namespace API.Dapper.Repositories
 
         public int Insert(PurchaseOrder purchaseOrder)
         {
-            throw new NotImplementedException();
+            return (int)_connection.Insert<PurchaseOrder>(purchaseOrder);
         }
 
         public void Update(PurchaseOrder purchaseOrder)
         {
-            throw new NotImplementedException();
+            _connection.Update<PurchaseOrder>(purchaseOrder);
         }
     }
 }
